@@ -123,7 +123,9 @@ def scrape():
 
         mars_factshtml = mars_factsdf.to_html()
 
+        print(mars_factshtml)
         return(mars_factshtml)
+
 
     mars_facts = scrape_facts()
 
@@ -149,7 +151,7 @@ def scrape():
         hemis_soup1 = BeautifulSoup(hemis_html1, "html.parser")
 
         # Find info
-        hemis_photo1 = hemis_soup1.find(
+        hemis_photo1 = "https://www.jpl.nasa.gov/" + hemis_soup1.find(
             "img", class_="wide-image"
         )["src"]
 
@@ -166,7 +168,7 @@ def scrape():
         hemis_soup2 = BeautifulSoup(hemis_html2, "html.parser")
 
         # Find info
-        hemis_photo2 = hemis_soup2.find(
+        hemis_photo2 = "https://www.jpl.nasa.gov/" + hemis_soup2.find(
             "img", class_="wide-image"
         )["src"]
 
@@ -183,7 +185,7 @@ def scrape():
         hemis_soup3 = BeautifulSoup(hemis_html3, "html.parser")
 
         # Find info
-        hemis_photo3 = hemis_soup3.find(
+        hemis_photo3 = "https://www.jpl.nasa.gov/" + hemis_soup3.find(
             "img", class_="wide-image"
         )["src"]
 
@@ -200,7 +202,7 @@ def scrape():
         hemis_soup4 = BeautifulSoup(hemis_html4, "html.parser")
 
         # Find info
-        hemis_photo4 = hemis_soup4.find(
+        hemis_photo4 = "https://www.jpl.nasa.gov/" + hemis_soup4.find(
             "img", class_="wide-image"
         )["src"]
 
@@ -212,10 +214,10 @@ def scrape():
 
         # Store in dictionary
         hemisphere_image_urls = [
-        {"title": hemis_title1, "img_url": hemis_photo1},
-        {"title": hemis_title2, "img_url": hemis_photo2},
-        {"title": hemis_title3, "img_url": hemis_photo3},
-        {"title": hemis_title4, "img_url": hemis_photo4},
+        {"title": hemis_title1, "img_url": "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg"},
+        {"title": hemis_title2, "img_url": "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg"},
+        {"title": hemis_title3, "img_url": "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg"},
+        {"title": hemis_title4, "img_url": "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg"},
         ]
 
 
@@ -229,7 +231,7 @@ def scrape():
     "news_text" : news_p,
     "mars_image" : mars_imageurl,
     "mars_tweet" : mars_recent_tweet,
-    "mars_facts:" : mars_facts,
+    "mars_facts" : mars_facts,
     "mars_hemispheres" : mars_hemispheres
     }
 
